@@ -15,9 +15,14 @@
     "@types/react-dom": "^0.14.23",
     "babel-core": "^6.24.0",
     "babel-loader": "^6.4.1",
+    "babel-plugin-transform-async-to-generator": "^6.22.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-es2015": "^6.24.0",
     "babel-preset-react": "^6.23.0",
-    "babel-preset-stage-0": "^6.22.0",
+    "babel-preset-stage-3": "^6.22.0",
+    "css-loader": "^0.27.3",
+    "source-map-loader": "^0.2.0",
+    "style-loader": "^0.16.0",
     "ts-loader": "^2.0.3",
     "typescript": "^2.2.2",
     "webpack": "^2.3.2",
@@ -25,6 +30,8 @@
   },
   "dependencies": {
     "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react-dom": "^15.4.2",
+    "react-stepzilla": "^4.3.4",
+    "whatwg-fetch": "^2.0.3"
   }
 }
