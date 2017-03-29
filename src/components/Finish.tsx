@@ -1,7 +1,16 @@
 import * as React from 'react'
 import { Component } from 'react'
 
-const Finish = (props) => (
+interface Answer {
+  id: number;
+  response: string;
+}
+
+interface Props {
+  answers: Array<Answer>
+}
+
+const Finish = (props: Props) => (
   <ul className="list-group">
     {props.answers.map(answer => <li key={answer.id} className="list-group-item">id: {answer.id}, answer: {answer.response}</li>)}
   </ul>

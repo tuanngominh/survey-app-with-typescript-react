@@ -1,7 +1,12 @@
 import * as React from 'react'
 import { Component } from 'react'
 
-class MultipleChoicesItem extends Component<any, any> {
+interface MultipleChoicesItem_Props extends MultipleChoices_Props_Option{
+  questionId: number;
+  onSelect(id: number, value: string): void;
+}
+
+class MultipleChoicesItem extends Component<MultipleChoicesItem_Props, any> {
   handleSelect = () => {
     this.props.onSelect(this.props.questionId, this.props.id)
   }
@@ -16,7 +21,21 @@ class MultipleChoicesItem extends Component<any, any> {
   }
 }
 
-class MultipleChoices extends Component<any, any> {
+interface MultipleChoices_Props_Option {
+  id: string;
+  name: string;
+  value: string;
+}
+
+interface MultipleChoices_Props {
+  id: number;
+  type: string;
+  question: string;
+  options: Array<MultipleChoices_Props_Option>;
+  onSelect(id: number, value: string): void;
+}
+
+class MultipleChoices extends Component<MultipleChoices_Props, any> {
   render() {
     return (
       <div>

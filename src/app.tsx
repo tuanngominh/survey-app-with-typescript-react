@@ -10,7 +10,11 @@ async function load(): Promise<any> {
   return result.questions
 }
 
-class App extends Component<any, any> {
+interface State {
+  questions: Array<any>;
+}
+
+class App extends Component<any, State> {
   constructor (props) {
     super(props)
     this.state = {

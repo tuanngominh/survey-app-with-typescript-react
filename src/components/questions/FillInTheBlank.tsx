@@ -2,10 +2,16 @@ import * as React from 'react'
 import { Component } from 'react'
 
 interface Props {
+  id: number;
+  question: string;
   onSelect(id: number, value: string): void;
 }
 
-class FillInTheBlank extends Component<any, any> {
+interface State {
+  value: string;
+}
+
+class FillInTheBlank extends Component<Props, State> {
   constructor (props) {
     super(props)
     this.state = {

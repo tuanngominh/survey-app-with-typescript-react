@@ -1,7 +1,11 @@
 import * as React from 'react'
 import { Component } from 'react'
 
-class Instruction extends Component<any, any> {
+interface Props {
+  question: string;
+}
+
+class Instruction extends Component<Props, any> {
   render() {
     return (
       <div>
