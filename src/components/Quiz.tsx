@@ -18,7 +18,6 @@ class Quiz extends Component<any, any> {
   }
 
   handleSelect = (questionId, response) => {
-    // console.log(questionId, answer)
     this.setState((prevState, props) => {
       const found = prevState.answers.find(answer => answer.id === questionId)
       if (found) {

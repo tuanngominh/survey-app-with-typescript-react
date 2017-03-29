@@ -1,37 +1,18 @@
 import * as React from 'react'
 import { Component } from 'react'
-import 'whatwg-fetch'
 import Quiz from './components/Quiz'
 import './App.scss'
+import {connect} from 'react-redux'
+import fetchQuestions from './actions'
 
-async function load(): Promise<any> {
-  const response = await fetch('/quiz-sample-data.json')
-  let result = await response.json()
-  return result.questions
-}
-
-interface State {
+interface Props {
   questions: Array<any>;
+  onFetch(): void;
 }
 
-class App extends Component<any, State> {
-  constructor (props) {
-    super(props)
-    this.state = {
-      questions: []
-    }
-  }
-
+class App extends Component<Props, any> {
   componentDidMount() {
-    load().then(questions => {
-      questions.map(q => ({
-        ...q,
-        question: q.prompt
-      }))
-      this.setState((prevState, props) => ({
-        questions: questions
-      }))
-    })
+    this.props.onFetch()
   }
 
   render() {
@@ -39,7 +20,7 @@ class App extends Component<any, State> {
       <div className="container">
         <div className="row">
           <div className="col-sm-12">
-            <Quiz questions={this.state.questions} />
+            <Quiz questions={this.props.questions} />
           </div>
         </div>
       </div>
@@ -47,4 +28,21 @@ class App extends Component<any, State> {
   }
 }
 
-export default App;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onFetch: (uid, text) => {
+      dispatch(fetchQuestions())
+    }
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    questions: state.questions
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App)
