@@ -28,21 +28,17 @@ class App extends Component<Props, any> {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onFetch: (uid, text) => {
-      dispatch(fetchQuestions())
+export default connect(
+  (state) => {
+    return {
+      questions: state.questions
+    }
+  },
+  (dispatch) => {
+    return {
+      onFetch: (uid, text) => {
+        dispatch(fetchQuestions())
+      }
     }
   }
-}
-
-const mapStateToProps = (state) => {
-  return {
-    questions: state.questions
-  }
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
 )(App)
