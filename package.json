@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --hot --inline",
+    "start": "webpack-dev-server --hot --inline --config webpack.config.dev.js",
+    "build": "webpack -p --config webpack.config.prod.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -21,6 +22,8 @@
     "babel-preset-react": "^6.23.0",
     "babel-preset-stage-3": "^6.22.0",
     "css-loader": "^0.27.3",
+    "node-sass": "^4.5.1",
+    "sass-loader": "^6.0.3",
     "source-map-loader": "^0.2.0",
     "style-loader": "^0.16.0",
     "ts-loader": "^2.0.3",
@@ -29,6 +32,7 @@
     "webpack-dev-server": "^2.4.2"
   },
   "dependencies": {
+    "bootstrap": "^4.0.0-alpha.6",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-stepzilla": "^4.3.4",

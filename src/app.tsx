@@ -2,6 +2,7 @@ import * as React from 'react'
 import { Component } from 'react'
 import 'whatwg-fetch'
 import Quiz from './components/Quiz'
+import './App.scss'
 
 async function load(): Promise<any> {
   const response = await fetch('/quiz-sample-data.json')
